@@ -1,18 +1,25 @@
-const AddTodo = () => {
+import { useState } from 'react';
+
+const AddTodo = ({ input, setInput, todoSubmited, isLoading }) => {
   return (
     <div>
-      <div className='input-group mb-3'>
+      <form className='input-group mb-3' onSubmit={todoSubmited}>
         <input
           type='text'
           className='form-control form-control-lg'
           placeholder='Enter todo'
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
         />
         <div className='input-group-append'>
-          <button className='input-group-text bg-success text-white'>
-            Add Todo
+          <button
+            className='input-group-text bg-success text-white'
+            disabled={isLoading ? 'disabled' : ''}
+          >
+            {isLoading ? 'Adding...' : 'Add Todo'}
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 };

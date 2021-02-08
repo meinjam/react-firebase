@@ -1,9 +1,9 @@
 import Todo from './Todo';
 
-const Todos = () => {
+const Todos = ({ todos }) => {
   return (
     <div>
-      <Todo />
+      <Todo todos={todos} />
     </div>
   );
 };
